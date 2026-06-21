@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+body {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: var(--color-base-content);
+}
+
+@theme {
+  --color-brand-blue: #2563EB;
+  --color-brand-lime: #A3E635;
+  --color-dark-main: #0B1120;
+  --color-dark-surface: #172133;
+  --color-dark-text-main: #E2E8F0;
+  --color-dark-text-muted: #94A3B8;
+  --color-brand-dark-legacy: #111827; 
+  --color-brand-light-legacy: #F3F4F6; 
+}
+
+:root {
+  color-scheme: light;
+  --color-primary: var(--color-brand-blue);
+  --color-secondary: var(--color-brand-lime);
+  
+  --color-base-100: #FFFFFF;
+  --color-base-200: var(--color-brand-light-legacy); 
+  --color-base-content: var(--color-brand-dark-legacy); 
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-primary: var(--color-brand-blue);
+  --color-secondary: var(--color-brand-lime);
+  --color-base-100: var(--color-dark-main);
+  --color-base-200: var(--color-dark-surface);
+
+  --color-base-content: var(--color-dark-text-main);
+  --color-btn-bg: var(--color-dark-surface);
+
+  --color-btn-text: var(--color-dark-text-main);
+  --color-border-color: #2E3A4E;
+}
+@utility text-dark-muted {
+  color: var(--color-dark-text-muted);
+}
+
+/* --- banner responsive (unmodified) --- */
+
+.global-carousel-wrapper {
+  position: relative;
+}
+.global-carousel-wrapper .carousel .control-dots {
+  position: absolute;
+  bottom: 25px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  max-w: max-content;
+  z-index: 10;
+  left: 24px;
+}
+@media (min-width: 640px) { .global-carousel-wrapper .carousel .control-dots { left: 48px; } }
+@media (min-width: 768px) { .global-carousel-wrapper .carousel .control-dots { left: 48px; bottom: 30px; } }
+@media (min-width: 1024px) { .global-carousel-wrapper .carousel .control-dots { left: 64px; bottom: 40px; } }
