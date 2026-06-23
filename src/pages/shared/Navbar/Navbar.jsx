@@ -3,7 +3,17 @@ import { Link, NavLink } from "react-router";
 import Logo from "../../../components/Logo/Logo";
 import ThemeToggle from "../../../components/ThemeToggle/ThemeToggle";
 
+import useAuth from "../../../hooks/useAuth";
+
 const Navbar = () => {
+  
+const {user, logOut} = useAuth();
+const handleLogOut = () => {
+  logOut()
+  .then()
+  .catch(error => console.log(error))
+}
+
   const links = (
     <>
       <li>
@@ -11,6 +21,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="coverage">Coverage</NavLink>
+      </li>
+      <li>
+        <NavLink to="send-parcel">Send Parcel</NavLink>
       </li>
       <li>
         <NavLink to="">About Us</NavLink>
@@ -61,7 +74,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <ThemeToggle />
-        <a className="btn">Buttonkoi</a>
+        {
+          user ? <a onClick={handleLogOut} className="btn">Log Out</a> : 
+          <Link to='/login'>Log In</Link>
+        }
+
+         <Link to='/rider' btn btn-secondary text-black>Be a rider</Link>
       </div>
     </div>
   );
