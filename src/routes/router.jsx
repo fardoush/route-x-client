@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'rider',
-        element: <PrivateRoute><Rider></Rider></PrivateRoute>
+        element: <PrivateRoute><Rider></Rider></PrivateRoute>,
       },
       {
         path: "coverage",
@@ -31,7 +31,8 @@ export const router = createBrowserRouter([
       },
       {
         path:'send-parcel',
-        element: <PrivateRoute><SendParcel></SendParcel></PrivateRoute> 
+        element: <PrivateRoute><SendParcel></SendParcel></PrivateRoute> ,
+        loader: () => fetch("/serviceCenter.json").then((res) => res.json()),
       }
     ],
   },
