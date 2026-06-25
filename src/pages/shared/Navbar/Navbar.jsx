@@ -34,6 +34,14 @@ const handleLogOut = () => {
       <li>
         <NavLink to="">Be a Rider</NavLink>
       </li>
+
+      {
+        user &&  <>
+        <li>
+          <NavLink to="/dashboard/my-parcels">My Parcel</NavLink>
+        </li>
+        </>
+      }
     </>
   );
   return (
